@@ -65,11 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = todoInput.value.trim();
 
     if (text === '') {
-      if (errorMsg) errorMsg.style.display = 'block';
+      if (errorMsg) {
+        errorMsg.classList.remove('hidden');
+        errorMsg.style.display = '';
+      }
       return;
     }
 
-    if (errorMsg) errorMsg.style.display = 'none';
+    if (errorMsg) {
+      errorMsg.classList.add('hidden');
+      errorMsg.style.display = 'none';
+    }
     addItem(text);
     todoInput.value = '';
     todoInput.focus();
